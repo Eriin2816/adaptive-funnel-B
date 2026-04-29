@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stop Losing Ready-to-Buy Leads | Adaptive AI Automations</title>
+<meta name="description" content="Adaptive builds AI-powered response, follow-up, and booking systems that contact new leads instantly, qualify them automatically, and move them onto your calendar before they go cold." />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="brand_assets/Adaptive.png" />
+<link rel="apple-touch-icon" href="brand_assets/Adaptive.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Stop Losing Ready-to-Buy Leads | Adaptive AI Automations" />
+<meta property="og:description" content="Adaptive builds AI-powered response, follow-up, and booking systems that contact new leads instantly, qualify them automatically, and move them onto your calendar before they go cold." />
+<meta property="og:image" content="brand_assets/Adaptive.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://adaptiveautomate.com" />
+<meta property="og:site_name" content="Adaptive AI Business Automations" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Stop Losing Ready-to-Buy Leads | Adaptive AI Automations" />
+<meta name="twitter:description" content="Adaptive builds AI-powered response, follow-up, and booking systems that contact new leads instantly, qualify them automatically, and move them onto your calendar before they go cold." />
+<meta name="twitter:image" content="brand_assets/Adaptive.png" />
+
+<!-- Fonts: Syne (display) + DM Sans (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:    '#0A1228',
+        'navy-2': '#0D1735',
+        'navy-3': '#111E42',
+        violet:  '#31205D',
+        'violet-2': '#3D2875',
+        cyan:    '#4BD5E8',
+        'cyan-2': '#22B8CB',
+        'cyan-3': '#0E8FA0',
+        'light-gray': '#EEF2F7',
+        'mid-gray': '#8B9CC4',
+      },
+      fontFamily: {
+        display: ['Syne', 'sans-serif'],
+        body: ['DM Sans', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+
+<style>
+  /* ─── CSS Variables ─── */
+  :root {
+    --navy:       #0A1228;
+    --navy-2:     #0D1735;
+    --navy-3:     #111E42;
+    --violet:     #31205D;
+    --violet-2:   #3D2875;
+    --cyan:       #4BD5E8;
+    --cyan-2:     #22B8CB;
+    --cyan-dim:   rgba(75,213,232,0.12);
+    --cyan-glow:  rgba(75,213,232,0.25);
+    --white:      #FFFFFF;
+    --gray:       #EEF2F7;
+    --mid-gray:   #8B9CC4;
+    --text-dim:   rgba(238,242,247,0.65);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--navy);
+    color: var(--gray);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Syne', sans-serif;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+  }
+
+  /* ─── Noise texture overlay ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ─── Glass card ─── */
+  .glass {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(75,213,232,0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .glass-strong {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(75,213,232,0.2);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  /* ─── Cyan glow button ─── */
+  .btn-cyan {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cyan);
+    color: var(--navy);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    padding: 14px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+    box-shadow: 0 0 24px rgba(75,213,232,0.35), 0 4px 16px rgba(0,0,0,0.4);
+    white-space: nowrap;
+  }
+  .btn-cyan:hover {
+    background: #6de4f5;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 40px rgba(75,213,232,0.55), 0 8px 24px rgba(0,0,0,0.5);
+  }
+  .btn-cyan:active { transform: translateY(0) scale(0.99); }
+  .btn-cyan:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--gray);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 13px 26px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid rgba(75,213,232,0.3);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    white-space: nowrap;
+  }
+  .btn-ghost:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-2px);
+  }
+  .btn-ghost:active { transform: translateY(0); }
+  .btn-ghost:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+  /* ─── Section label ─── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: rgba(75,213,232,0.1);
+    border: 1px solid rgba(75,213,232,0.2);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  /* ─── Sticky header scroll effect ─── */
+  #header.scrolled {
+    background: rgba(10,18,40,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(75,213,232,0.12);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  }
+
+  /* ─── Hero background radial meshes ─── */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 70%;
+    height: 80%;
+    background: radial-gradient(ellipse at center, rgba(49,32,93,0.7) 0%, transparent 70%);
+    animation: bgPulse 8s ease-in-out infinite alternate;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(ellipse at center, rgba(75,213,232,0.12) 0%, transparent 70%);
+    animation: bgPulse 10s ease-in-out infinite alternate-reverse;
+  }
+  .hero-bg-third {
+    position: absolute;
+    bottom: -10%;
+    left: 30%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(ellipse at center, rgba(49,32,93,0.4) 0%, transparent 70%);
+    animation: bgPulse 12s ease-in-out infinite alternate;
+  }
+  @keyframes bgPulse {
+    from { opacity: 0.6; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.08); }
+  }
+
+  /* ─── Animated circuit lines SVG ─── */
+  .circuit-line {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawLine 2.5s ease forwards;
+  }
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* ─── Dashboard card animations ─── */
+  .pipeline-card {
+    animation: floatCard 5s ease-in-out infinite;
+  }
+  .pipeline-card:nth-child(2) { animation-delay: -1.2s; }
+  .pipeline-card:nth-child(3) { animation-delay: -2.4s; }
+  .pipeline-card:nth-child(4) { animation-delay: -3.6s; }
+  .pipeline-card:nth-child(5) { animation-delay: -4.8s; }
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-5px); }
+  }
+
+  /* ─── Pulse dot ─── */
+  .pulse-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 0 rgba(75,213,232,0.5);
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%   { box-shadow: 0 0 0 0 rgba(75,213,232,0.6); }
+    70%  { box-shadow: 0 0 0 8px rgba(75,213,232,0); }
+    100% { box-shadow: 0 0 0 0 rgba(75,213,232,0); }
+  }
+
+  /* ─── Glow path animation ─── */
+  .glow-path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: flowPath 3s linear infinite;
+  }
+  @keyframes flowPath {
+    0%   { stroke-dashoffset: 300; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { stroke-dashoffset: -300; opacity: 0; }
+  }
+
+  /* ─── Text hero reveal ─── */
+  .hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: wordReveal 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  @keyframes wordReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── FAQ accordion ─── */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), padding 0.3s;
+  }
+  .faq-answer.open { max-height: 400px; }
+  .faq-toggle svg {
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+  .faq-toggle.open svg { transform: rotate(45deg); }
+
+  /* ─── Mobile nav ─── */
+  #mobile-nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  #mobile-nav.open { max-height: 400px; }
+
+  /* ─── Step connector line ─── */
+  .step-connector {
+    position: absolute;
+    top: 20px;
+    left: calc(50% + 20px);
+    right: calc(-50% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+    opacity: 0.3;
+  }
+
+  /* ─── Sticky mobile CTA ─── */
+  #sticky-mobile-cta {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    #sticky-mobile-cta {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 12px 16px;
+      background: rgba(10,18,40,0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(75,213,232,0.2);
+    }
+  }
+
+  /* ─── Testimonial card hover ─── */
+  .testimonial-card {
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s, box-shadow 0.3s;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(75,213,232,0.35);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 24px rgba(75,213,232,0.1);
+  }
+
+  /* ─── Before/After panel ─── */
+  .before-panel {
+    background: rgba(255,60,60,0.04);
+    border: 1px solid rgba(255,100,100,0.15);
+  }
+  .after-panel {
+    background: rgba(75,213,232,0.04);
+    border: 1px solid rgba(75,213,232,0.2);
+  }
+
+  /* ─── Custom scrollbar ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: rgba(75,213,232,0.3); border-radius: 3px; }
+
+  /* ─── Section divider glow ─── */
+  .section-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+    border-radius: 2px;
+  }
+
+  /* Metric cards */
+  .metric-card {
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+  }
+  .metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(75,213,232,0.1);
+  }
+
+  /* Service card */
+  .service-card {
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(75,213,232,0.4);
+  }
+
+  /* ═══════════════════════════════════════════
+     PREMIUM ENTRANCE ANIMATION SYSTEM
+  ═══════════════════════════════════════════ */
+
+  /* Slide from left */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-48px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+  /* Slide from right */
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(48px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* Scale pop */
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.88);
+    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+  /* Bounce spring */
+  .reveal-bounce {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.34,1.8,0.64,1);
+  }
+  .reveal-bounce.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+  /* Glow card fade */
+  .reveal-glow {
+    opacity: 0;
+    transform: translateY(24px);
+    box-shadow: 0 0 0 rgba(75,213,232,0);
+    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1), box-shadow 0.6s;
+  }
+  .reveal-glow.visible {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 32px rgba(75,213,232,0.08);
+  }
+
+  /* Flip in (for step numbers / icons) */
+  .reveal-flip {
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.8);
+    transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    transform-style: preserve-3d;
+  }
+  .reveal-flip.visible { opacity: 1; transform: rotateY(0deg) scale(1); }
+
+  /* Shared extra delays */
+  .reveal-delay-1,.reveal-left.reveal-delay-1,.reveal-right.reveal-delay-1,
+  .reveal-scale.reveal-delay-1,.reveal-bounce.reveal-delay-1,.reveal-glow.reveal-delay-1,
+  .reveal-flip.reveal-delay-1 { transition-delay: 0.1s; }
+
+  .reveal-delay-2,.reveal-left.reveal-delay-2,.reveal-right.reveal-delay-2,
+  .reveal-scale.reveal-delay-2,.reveal-bounce.reveal-delay-2,.reveal-glow.reveal-delay-2,
+  .reveal-flip.reveal-delay-2 { transition-delay: 0.2s; }
+
+  .reveal-delay-3,.reveal-left.reveal-delay-3,.reveal-right.reveal-delay-3,
+  .reveal-scale.reveal-delay-3,.reveal-bounce.reveal-delay-3,.reveal-glow.reveal-delay-3,
+  .reveal-flip.reveal-delay-3 { transition-delay: 0.3s; }
+
+  .reveal-delay-4,.reveal-left.reveal-delay-4,.reveal-right.reveal-delay-4,
+  .reveal-scale.reveal-delay-4,.reveal-bounce.reveal-delay-4,.reveal-glow.reveal-delay-4,
+  .reveal-flip.reveal-delay-4 { transition-delay: 0.4s; }
+
+  .reveal-delay-5,.reveal-left.reveal-delay-5,.reveal-right.reveal-delay-5,
+  .reveal-scale.reveal-delay-5,.reveal-bounce.reveal-delay-5,.reveal-glow.reveal-delay-5,
+  .reveal-flip.reveal-delay-5 { transition-delay: 0.5s; }
+
+  .reveal-delay-6 { transition-delay: 0.6s; }
+  .reveal-delay-7 { transition-delay: 0.7s; }
+
+  /* ═══════════════════════════════════════════
+     TECH BACKGROUND ELEMENTS
+  ═══════════════════════════════════════════ */
+
+  /* Canvas particle network - full page fixed */
+  #particle-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+  }
+
+  /* Glowing floating orbs */
+  .tech-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+  }
+  .tech-orb-1 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(75,213,232,0.08) 0%, transparent 70%);
+    animation: orbDrift1 18s ease-in-out infinite alternate;
+  }
+  .tech-orb-2 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(49,32,93,0.5) 0%, transparent 70%);
+    animation: orbDrift2 14s ease-in-out infinite alternate;
+  }
+  .tech-orb-3 {
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(75,213,232,0.06) 0%, transparent 70%);
+    animation: orbDrift3 20s ease-in-out infinite alternate;
+  }
+  @keyframes orbDrift1 {
+    0%   { transform: translate(0,   0)   scale(1); }
+    50%  { transform: translate(60px,-40px) scale(1.1); }
+    100% { transform: translate(-30px,50px) scale(0.95); }
+  }
+  @keyframes orbDrift2 {
+    0%   { transform: translate(0,   0)   scale(1); }
+    50%  { transform: translate(-50px,30px) scale(1.15); }
+    100% { transform: translate(40px,-60px) scale(0.9); }
+  }
+  @keyframes orbDrift3 {
+    0%   { transform: translate(0,0) scale(1); }
+    100% { transform: translate(80px,80px) scale(1.2); }
+  }
+
+  /* Scanning horizontal line */
+  .scan-line {
+    position: fixed;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(75,213,232,0.15) 20%, rgba(75,213,232,0.4) 50%, rgba(75,213,232,0.15) 80%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+    animation: scanDown 12s linear infinite;
+  }
+  @keyframes scanDown {
+    0%   { top: -2px; opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { top: 100vh; opacity: 0; }
+  }
+
+  /* Section data stream pulse rings */
+  .pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(75,213,232,0.2);
+    pointer-events: none;
+    animation: ringExpand 3s ease-out infinite;
+  }
+  .pulse-ring-2 { animation-delay: 1s; }
+  .pulse-ring-3 { animation-delay: 2s; }
+  @keyframes ringExpand {
+    0%   { transform: scale(0.4); opacity: 0.6; }
+    100% { transform: scale(2.5); opacity: 0; }
+  }
+
+  /* Data flow dots along paths */
+  .data-dot {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 6px var(--cyan);
+    pointer-events: none;
+    animation: dataDotFlow 4s linear infinite;
+  }
+  @keyframes dataDotFlow {
+    0%   { opacity: 0; offset-distance: 0%; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { opacity: 0; offset-distance: 100%; }
+  }
+
+  /* Hero tech grid shimmer */
+  @keyframes gridShimmer {
+    0%, 100% { opacity: 0.03; }
+    50%       { opacity: 0.07; }
+  }
+  .grid-shimmer { animation: gridShimmer 6s ease-in-out infinite; }
+
+  /* Neon border trace on section labels when visible */
+  .section-label.visible {
+    animation: labelTrace 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  @keyframes labelTrace {
+    0%   { box-shadow: none; }
+    100% { box-shadow: 0 0 14px rgba(75,213,232,0.25); }
+  }
+
+  /* Counter number highlight */
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    color: var(--cyan);
+    display: inline-block;
+  }
+
+  /* Floating chip animation (trust chips) */
+  .trust-chip-animate {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    animation: chipReveal 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+  @keyframes chipReveal {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Glitch flash on headline (once on load) */
+  .glitch-once {
+    animation: glitchFlash 0.4s steps(1) 1.5s 2 forwards;
+  }
+  @keyframes glitchFlash {
+    0%   { text-shadow: -2px 0 rgba(75,213,232,0.7), 2px 0 rgba(255,50,150,0.4); transform: skewX(-1deg); }
+    50%  { text-shadow:  2px 0 rgba(75,213,232,0.5), -2px 0 rgba(255,50,150,0.3); transform: skewX(1deg); }
+    100% { text-shadow: none; transform: skewX(0); }
+  }
+
+  /* Typewriter cursor */
+  .typewriter::after {
+    content: '|';
+    color: var(--cyan);
+    animation: blink 0.9s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+</style>
+</head>
+
+<body class="relative">
+
+<!-- ── Tech background layer ── -->
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+<div class="scan-line" aria-hidden="true"></div>
+
+<!-- ════════════════════════════════════════════════
+     STICKY HEADER
+════════════════════════════════════════════════ -->
+<header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300" style="padding: 0;">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3" aria-label="Adaptive Automations home">
+      <img src="brand_assets/Adaptive.png" alt="Adaptive AI Business Automations" style="height:120px; width:auto;" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+      <a href="#problem" class="text-sm font-body text-mid-gray hover:text-cyan transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan">Problem</a>
+      <a href="#system"  class="text-sm font-body text-mid-gray hover:text-cyan transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan">System</a>
+      <a href="#process" class="text-sm font-body text-mid-gray hover:text-cyan transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan">Process</a>
+      <a href="#faq"     class="text-sm font-body text-mid-gray hover:text-cyan transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan">FAQ</a>
+    </nav>
+
+    <!-- Header CTA -->
+    <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan hidden md:inline-flex text-sm">
+      Book a Free Audit
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button id="nav-toggle" aria-label="Open menu" class="md:hidden flex flex-col gap-[5px] p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded">
+      <span class="block w-5 h-0.5 bg-gray-300 transition-all duration-200" id="bar1"></span>
+      <span class="block w-5 h-0.5 bg-gray-300 transition-all duration-200" id="bar2"></span>
+      <span class="block w-5 h-0.5 bg-gray-300 transition-all duration-200" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="md:hidden glass border-t border-cyan-900/30">
+    <nav class="px-6 py-4 flex flex-col gap-4">
+      <a href="#problem" class="text-sm text-mid-gray hover:text-cyan transition-colors duration-200">Problem</a>
+      <a href="#system"  class="text-sm text-mid-gray hover:text-cyan transition-colors duration-200">System</a>
+      <a href="#process" class="text-sm text-mid-gray hover:text-cyan transition-colors duration-200">Process</a>
+      <a href="#faq"     class="text-sm text-mid-gray hover:text-cyan transition-colors duration-200">FAQ</a>
+      <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan justify-center mt-2">Book a Free Audit</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+  <!-- Background -->
+  <div class="hero-bg">
+    <div class="hero-bg-third"></div>
+    <!-- Subtle animated grid -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#4BD5E8" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+    <!-- Animated connection lines -->
+    <svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+      <path d="M 100 200 Q 300 150 500 300 T 900 250" fill="none" stroke="url(#lineGrad1)" stroke-width="1" class="circuit-line" style="animation-delay:0.5s"/>
+      <path d="M 200 600 Q 500 500 700 650 T 1100 580" fill="none" stroke="url(#lineGrad1)" stroke-width="1" class="circuit-line" style="animation-delay:1s"/>
+      <path d="M 900 100 Q 1100 300 1200 200" fill="none" stroke="url(#lineGrad1)" stroke-width="1" class="circuit-line" style="animation-delay:1.5s"/>
+      <defs>
+        <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#4BD5E8" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#4BD5E8" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#4BD5E8" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Copy -->
+      <div>
+        <div class="section-label mb-6 reveal-left" style="animation-delay:0s">
+          <span class="pulse-dot"></span>
+          AI Lead Response System
+        </div>
+
+        <h1 class="text-5xl md:text-6xl lg:text-[3.8rem] xl:text-[4.2rem] font-display font-extrabold text-white mb-6 leading-tight">
+          <span class="hero-word" style="animation-delay:0.1s">Stop</span>
+          <span class="hero-word" style="animation-delay:0.2s; color:var(--cyan);"> Losing</span>
+          <br/>
+          <span class="hero-word" style="animation-delay:0.3s">Ready-to-Buy</span>
+          <br/>
+          <span class="hero-word" style="animation-delay:0.4s">Leads to</span>
+          <span class="hero-word" style="animation-delay:0.5s; color:var(--cyan);"> Slow</span>
+          <br/>
+          <span class="hero-word" style="animation-delay:0.6s">Follow-Up</span>
+        </h1>
+
+        <p class="text-lg text-light-gray/70 mb-8 max-w-xl leading-relaxed reveal-left reveal-delay-3" style="font-size:1.05rem; line-height:1.75;">
+          Adaptive builds AI-powered response, follow-up, and booking systems that contact new leads instantly, qualify them automatically, and move them onto your calendar before they go cold.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 mb-10 reveal-bounce reveal-delay-4">
+          <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan">
+            Book a Free Lead Flow Audit
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#system" class="btn-ghost">
+            See How It Works
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Trust chips -->
+        <div class="flex flex-wrap gap-2 reveal-left reveal-delay-5">
+          <span class="glass text-xs text-cyan px-3 py-1.5 rounded-full border border-cyan/20 font-body">⚡ Instant Lead Response</span>
+          <span class="glass text-xs text-light-gray/70 px-3 py-1.5 rounded-full border border-white/10 font-body">🔄 Automated Follow-Up</span>
+          <span class="glass text-xs text-light-gray/70 px-3 py-1.5 rounded-full border border-white/10 font-body">📊 CRM Pipeline Visibility</span>
+          <span class="glass text-xs text-light-gray/70 px-3 py-1.5 rounded-full border border-white/10 font-body">📅 Appointment Booking</span>
+          <span class="glass text-xs text-light-gray/70 px-3 py-1.5 rounded-full border border-white/10 font-body">🏢 Built for Local Services</span>
+        </div>
+      </div>
+
+      <!-- Right: Animated Dashboard -->
+      <div class="relative reveal-right reveal-delay-2">
+        <div class="glass-strong rounded-2xl p-5 relative overflow-hidden" style="box-shadow: 0 0 60px rgba(75,213,232,0.12), 0 24px 64px rgba(0,0,0,0.5); border-color: rgba(75,213,232,0.2);">
+          <!-- Dashboard header bar -->
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/[0.07]">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/70"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/70"></div>
+            </div>
+            <span class="text-xs text-mid-gray font-body">Lead Pipeline — Live View</span>
+            <div class="flex items-center gap-1.5">
+              <div class="pulse-dot" style="width:6px; height:6px;"></div>
+              <span class="text-xs text-cyan font-body">Live</span>
+            </div>
+          </div>
+
+          <!-- Pipeline steps: vertical flow -->
+          <div class="relative space-y-3">
+
+            <!-- Step 1: Lead Received -->
+            <div class="pipeline-card glass rounded-xl p-3 flex items-center gap-3 relative" style="border-color: rgba(75,213,232,0.2);">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(75,213,232,0.15);">
+                <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><circle cx="9" cy="6" r="3" stroke="#4BD5E8" stroke-width="1.5"/><path d="M3 15c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs font-display font-semibold text-white">New Lead Received</p>
+                  <span class="text-[10px] text-cyan bg-cyan/10 px-2 py-0.5 rounded-full">Just now</span>
+                </div>
+                <p class="text-[11px] text-mid-gray mt-0.5">Google Ad → Form Submitted</p>
+              </div>
+            </div>
+
+            <!-- Arrow connector -->
+            <div class="flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="opacity:0.5;">
+                <path d="M8 2v9M4 8l4 4 4-4" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Step 2: AI Response -->
+            <div class="pipeline-card glass rounded-xl p-3 flex items-center gap-3" style="border-color: rgba(75,213,232,0.25); background: rgba(75,213,232,0.05);">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(75,213,232,0.2);">
+                <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M2 5a2 2 0 012-2h10a2 2 0 012 2v6a2 2 0 01-2 2H7l-4 3V5z" stroke="#4BD5E8" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs font-display font-semibold text-white">AI Response Sent</p>
+                  <span class="text-[10px] text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">Instant</span>
+                </div>
+                <p class="text-[11px] text-mid-gray mt-0.5">SMS + Email delivered in &lt;60s</p>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="opacity:0.5;">
+                <path d="M8 2v9M4 8l4 4 4-4" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Step 3: Qualified -->
+            <div class="pipeline-card glass rounded-xl p-3 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(75,213,232,0.12);">
+                <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M16 5L7 14l-5-5" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs font-display font-semibold text-white">Lead Qualified</p>
+                  <span class="text-[10px] text-violet-300 bg-violet-300/10 px-2 py-0.5 rounded-full">Auto</span>
+                </div>
+                <p class="text-[11px] text-mid-gray mt-0.5">Budget ✓ &nbsp;Timeline ✓ &nbsp;Service ✓</p>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="opacity:0.5;">
+                <path d="M8 2v9M4 8l4 4 4-4" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <!-- Step 4: Appointment Booked -->
+            <div class="pipeline-card glass-strong rounded-xl p-3 flex items-center gap-3" style="border-color: rgba(75,213,232,0.35);">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(75,213,232,0.25);">
+                <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><rect x="2" y="3" width="14" height="13" rx="2" stroke="#4BD5E8" stroke-width="1.5"/><path d="M6 2v2M12 2v2M2 8h14" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs font-display font-semibold text-cyan">Appointment Booked</p>
+                  <span class="text-[10px] text-cyan bg-cyan/15 px-2 py-0.5 rounded-full font-semibold">Confirmed</span>
+                </div>
+                <p class="text-[11px] text-mid-gray mt-0.5">Thursday 2:00 PM — Discovery Call</p>
+              </div>
+            </div>
+
+            <!-- Small metric row -->
+            <div class="grid grid-cols-3 gap-2 mt-2">
+              <div class="glass rounded-lg p-2 text-center">
+                <p class="text-cyan text-base font-display font-bold">&lt;60s</p>
+                <p class="text-[10px] text-mid-gray">Response</p>
+              </div>
+              <div class="glass rounded-lg p-2 text-center">
+                <p class="text-white text-base font-display font-bold">100%</p>
+                <p class="text-[10px] text-mid-gray">Follow-Up</p>
+              </div>
+              <div class="glass rounded-lg p-2 text-center">
+                <p class="text-cyan text-base font-display font-bold">Auto</p>
+                <p class="text-[10px] text-mid-gray">Pipeline</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating glow -->
+          <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20 pointer-events-none" style="background: radial-gradient(circle, var(--cyan) 0%, transparent 70%);"></div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div><!-- /container -->
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     PAIN SECTION: THE LEAD LEAK
+════════════════════════════════════════════════ -->
+<section id="problem" class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(49,32,93,0.25) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal mx-auto">The Real Problem</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-5 reveal reveal-delay-1">
+        The Lead Leak Happens<br/><span style="color:var(--cyan);">After the Click</span>
+      </h2>
+      <p class="text-lg text-light-gray/60 max-w-2xl mx-auto reveal reveal-delay-2" style="line-height:1.75;">
+        You're already paying for ads, SEO, and referrals. But most businesses lose their best opportunities not at the top of the funnel — but in the critical minutes after a lead makes contact.
+      </p>
+    </div>
+
+    <!-- Timeline: What happens in the first minutes -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+
+      <!-- Card 1 -->
+      <div class="glass rounded-2xl p-6 reveal-glow metric-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,60,60,0.04);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,100,100,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M6.5 2a3 3 0 00-3 3v10a3 3 0 003 3h7a3 3 0 003-3V5a3 3 0 00-3-3H6.5z" stroke="#FF6464" stroke-width="1.5"/><path d="M7 7h6M7 10h4" stroke="#FF6464" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs text-red-400/80 font-body bg-red-400/10 px-2 py-0.5 rounded-full">Minute 0–2</span>
+        </div>
+        <h3 class="text-base font-display font-bold text-white mb-2">Form Submitted — No Response</h3>
+        <p class="text-sm text-light-gray/60 leading-relaxed">The lead fills out your form. They're hot. Your inbox doesn't notify anyone. No auto-reply arrives. They wait.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass rounded-2xl p-6 reveal-glow reveal-delay-1 metric-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,60,60,0.04);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,100,100,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M4 4l12 12M4 16L16 4" stroke="#FF6464" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs text-red-400/80 font-body bg-red-400/10 px-2 py-0.5 rounded-full">Minute 2–15</span>
+        </div>
+        <h3 class="text-base font-display font-bold text-white mb-2">Call Goes to Voicemail</h3>
+        <p class="text-sm text-light-gray/60 leading-relaxed">They call. You're on a job. The phone rings out. No voicemail transcription, no call-back reminder. The moment passes.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass rounded-2xl p-6 reveal-glow reveal-delay-2 metric-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,60,60,0.04);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,100,100,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke="#FF6464" stroke-width="1.5"/><path d="M10 6v5l3 3" stroke="#FF6464" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs text-red-400/80 font-body bg-red-400/10 px-2 py-0.5 rounded-full">Hour 1–4</span>
+        </div>
+        <h3 class="text-base font-display font-bold text-white mb-2">Message Sits Unread</h3>
+        <p class="text-sm text-light-gray/60 leading-relaxed">The Facebook or Instagram DM sits unseen. The lead is still warm — but that window is closing fast with every passing hour.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="glass rounded-2xl p-6 reveal-glow reveal-delay-3 metric-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,60,60,0.04);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,100,100,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M10 3v7l4 2" stroke="#FF6464" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="10" r="8" stroke="#FF6464" stroke-width="1.5"/></svg>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs text-orange-400/80 font-body bg-orange-400/10 px-2 py-0.5 rounded-full">Day 1–3</span>
+        </div>
+        <h3 class="text-base font-display font-bold text-white mb-2">Inconsistent Follow-Up</h3>
+        <p class="text-sm text-light-gray/60 leading-relaxed">You remember to follow up — sometimes. Other times the lead gets added to a mental list that's never revisited.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="glass rounded-2xl p-6 reveal-glow reveal-delay-4 metric-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,60,60,0.04);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,100,100,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M4 6h12M4 10h8M4 14h5" stroke="#FF6464" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs text-orange-400/80 font-body bg-orange-400/10 px-2 py-0.5 rounded-full">Day 3–7</span>
+        </div>
+        <h3 class="text-base font-display font-bold text-white mb-2">No Qualification System</h3>
+        <p class="text-sm text-light-gray/60 leading-relaxed">There's no system to filter serious buyers from tire-kickers. Your calendar fills with wrong-fit appointments — or not at all.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="glass rounded-2xl p-6 reveal-glow reveal-delay-5 metric-card" style="border-color: rgba(255,100,100,0.2); background: rgba(255,60,60,0.04);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(255,100,100,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M10 17c4.418 0 8-3.134 8-7S14.418 3 10 3 2 6.134 2 10s3.582 7 8 7z" stroke="#FF6464" stroke-width="1.5"/><path d="M10 7v4M10 13h.01" stroke="#FF6464" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs text-red-400/80 font-body bg-red-400/10 px-2 py-0.5 rounded-full">Lost</span>
+        </div>
+        <h3 class="text-base font-display font-bold text-white mb-2">They Booked a Competitor</h3>
+        <p class="text-sm text-light-gray/60 leading-relaxed">The lead didn't ghost you — they went to whoever called back first. Speed wins. The competitor had a system. You didn't.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     COST OF SLOW FOLLOW-UP
+════════════════════════════════════════════════ -->
+<section class="relative py-20 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 40% at 80% 50%, rgba(49,32,93,0.3) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14">
+      <div class="section-label mb-4 reveal mx-auto">The Real Cost</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-4 reveal reveal-delay-1">
+        Every Delayed Response<br/><span style="color:var(--cyan);">Is a Gift to Your Competitor</span>
+      </h2>
+      <p class="text-lg text-light-gray/60 max-w-xl mx-auto reveal reveal-delay-2">
+        The gap between first contact and first response is where the job is won or lost.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+      <!-- Metric cards -->
+      <div class="glass rounded-2xl p-5 text-center reveal metric-card" style="border-color:rgba(255,80,80,0.2);">
+        <div class="text-3xl mb-2">📵</div>
+        <h4 class="text-sm font-display font-bold text-white mb-1">Missed Calls</h4>
+        <p class="text-xs text-light-gray/50">Unanswered calls that never convert</p>
+      </div>
+      <div class="glass rounded-2xl p-5 text-center reveal reveal-delay-1 metric-card" style="border-color:rgba(255,150,50,0.2);">
+        <div class="text-3xl mb-2">🧊</div>
+        <h4 class="text-sm font-display font-bold text-white mb-1">Cold Leads</h4>
+        <p class="text-xs text-light-gray/50">Warm prospects who moved on</p>
+      </div>
+      <div class="glass rounded-2xl p-5 text-center reveal reveal-delay-2 metric-card" style="border-color:rgba(200,200,50,0.2);">
+        <div class="text-3xl mb-2">🕳️</div>
+        <h4 class="text-sm font-display font-bold text-white mb-1">Forgotten Follow-Ups</h4>
+        <p class="text-xs text-light-gray/50">Leads you meant to call back</p>
+      </div>
+      <div class="glass rounded-2xl p-5 text-center reveal reveal-delay-3 metric-card" style="border-color:rgba(100,200,100,0.15);">
+        <div class="text-3xl mb-2">📅</div>
+        <h4 class="text-sm font-display font-bold text-white mb-1">Empty Calendar Slots</h4>
+        <p class="text-xs text-light-gray/50">Appointments that never got booked</p>
+      </div>
+      <div class="glass rounded-2xl p-5 text-center reveal reveal-delay-4 metric-card" style="border-color:rgba(75,213,232,0.15);">
+        <div class="text-3xl mb-2">🌫️</div>
+        <h4 class="text-sm font-display font-bold text-white mb-1">Unclear Pipeline</h4>
+        <p class="text-xs text-light-gray/50">No visibility on where each lead stands</p>
+      </div>
+    </div>
+
+    <!-- Pull quote -->
+    <div class="glass-strong rounded-2xl p-8 text-center reveal" style="border-color: rgba(75,213,232,0.25); background: rgba(75,213,232,0.04); max-width: 780px; margin: 0 auto;">
+      <p class="text-xl md:text-2xl font-display font-bold text-white leading-snug mb-3">
+        "If your business runs on high-ticket jobs,<br class="hidden md:block"/>one missed lead can cost <span style="color:var(--cyan);">hundreds or thousands</span> in revenue."
+      </p>
+      <p class="text-sm text-light-gray/50 font-body">That's not just a lost sale — it's the lifetime value, the referrals, and the reviews that go with it.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     THE MECHANISM: INSTANT LEAD RESPONSE SYSTEM
+════════════════════════════════════════════════ -->
+<section id="system" class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 50% at 20% 50%, rgba(49,32,93,0.35) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal mx-auto">The Solution</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-5 reveal reveal-delay-1">
+        The Instant Lead<br/><span style="color:var(--cyan);">Response System</span>
+      </h2>
+      <p class="text-lg text-light-gray/60 max-w-2xl mx-auto reveal reveal-delay-2">
+        A connected AI system that responds, qualifies, follows up, books, and tracks every lead — automatically, without your team lifting a finger.
+      </p>
+    </div>
+
+    <!-- 5-step flow -->
+    <div class="relative">
+      <!-- Connecting line desktop -->
+      <div class="hidden lg:block absolute top-[52px] left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent 5%, rgba(75,213,232,0.15) 20%, rgba(75,213,232,0.3) 50%, rgba(75,213,232,0.15) 80%, transparent 95%);"></div>
+
+      <div class="grid md:grid-cols-5 gap-6">
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center text-center reveal">
+          <div class="relative mb-5">
+            <div class="w-[52px] h-[52px] rounded-full flex items-center justify-center relative z-10" style="background: rgba(75,213,232,0.15); border: 2px solid rgba(75,213,232,0.4);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M11 2C6.03 2 2 6.03 2 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 4a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm0 10c-2.67 0-5-1.34-5-3s2.33-3 5-3 5 1.34 5 3-2.33 3-5 3z" fill="#4BD5E8"/></svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-navy flex items-center justify-center border border-cyan/30">
+              <span class="text-[9px] font-display font-bold text-cyan">1</span>
+            </div>
+          </div>
+          <h3 class="text-sm font-display font-bold text-white mb-2">Capture<br/>the Lead</h3>
+          <p class="text-xs text-light-gray/55 leading-relaxed">From ads, forms, calls, social, or referrals — every source is connected.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center text-center reveal reveal-delay-1">
+          <div class="relative mb-5">
+            <div class="w-[52px] h-[52px] rounded-full flex items-center justify-center relative z-10" style="background: rgba(75,213,232,0.15); border: 2px solid rgba(75,213,232,0.4);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M4 4h14v10a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" stroke="#4BD5E8" stroke-width="1.6"/><path d="M4 4l7 7 7-7" stroke="#4BD5E8" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-navy flex items-center justify-center border border-cyan/30">
+              <span class="text-[9px] font-display font-bold text-cyan">2</span>
+            </div>
+          </div>
+          <h3 class="text-sm font-display font-bold text-white mb-2">Respond<br/>Instantly</h3>
+          <p class="text-xs text-light-gray/55 leading-relaxed">AI sends a personalized SMS or email in under 60 seconds, every time.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center text-center reveal reveal-delay-2">
+          <div class="relative mb-5">
+            <div class="w-[52px] h-[52px] rounded-full flex items-center justify-center relative z-10" style="background: rgba(75,213,232,0.2); border: 2px solid rgba(75,213,232,0.5);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M9 11l3 3 8-8" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 11a9 9 0 11-4.27-7.71" stroke="#4BD5E8" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-navy flex items-center justify-center border border-cyan/30">
+              <span class="text-[9px] font-display font-bold text-cyan">3</span>
+            </div>
+          </div>
+          <h3 class="text-sm font-display font-bold text-white mb-2">Qualify<br/>Automatically</h3>
+          <p class="text-xs text-light-gray/55 leading-relaxed">Conversational AI asks the right questions to filter and score leads automatically.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex flex-col items-center text-center reveal reveal-delay-3">
+          <div class="relative mb-5">
+            <div class="w-[52px] h-[52px] rounded-full flex items-center justify-center relative z-10" style="background: rgba(75,213,232,0.15); border: 2px solid rgba(75,213,232,0.4);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="3" y="4" width="16" height="15" rx="2" stroke="#4BD5E8" stroke-width="1.6"/><path d="M3 9h16M8 2v3M14 2v3" stroke="#4BD5E8" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-navy flex items-center justify-center border border-cyan/30">
+              <span class="text-[9px] font-display font-bold text-cyan">4</span>
+            </div>
+          </div>
+          <h3 class="text-sm font-display font-bold text-white mb-2">Book the<br/>Appointment</h3>
+          <p class="text-xs text-light-gray/55 leading-relaxed">Qualified leads get routed directly to your calendar. No back-and-forth.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flex flex-col items-center text-center reveal reveal-delay-4">
+          <div class="relative mb-5">
+            <div class="w-[52px] h-[52px] rounded-full flex items-center justify-center relative z-10" style="background: rgba(75,213,232,0.15); border: 2px solid rgba(75,213,232,0.4);">
+              <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M11 4v4M11 14v4M4 11h4M14 11h4" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="11" r="2" fill="#4BD5E8"/></svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-navy flex items-center justify-center border border-cyan/30">
+              <span class="text-[9px] font-display font-bold text-cyan">5</span>
+            </div>
+          </div>
+          <h3 class="text-sm font-display font-bold text-white mb-2">Follow Up Until<br/>They Convert</h3>
+          <p class="text-xs text-light-gray/55 leading-relaxed">Automated sequences nurture cold leads until they're ready to book or opt out.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-14 reveal">
+      <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan text-base px-8 py-4">
+        Book a Free Lead Flow Audit
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     WHAT GETS BUILT
+════════════════════════════════════════════════ -->
+<section class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 40% at 80% 30%, rgba(75,213,232,0.06) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal mx-auto">What's Included</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-5 reveal reveal-delay-1">
+        What Gets <span style="color:var(--cyan);">Built for You</span>
+      </h2>
+      <p class="text-lg text-light-gray/60 max-w-xl mx-auto reveal reveal-delay-2">
+        A complete lead-to-booking system — not a generic tool stack. Every component is configured for your business.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- Service cards -->
+      <div class="glass service-card rounded-2xl p-6 reveal">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M6 2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" stroke="#4BD5E8" stroke-width="1.5"/><circle cx="10" cy="11" r="2.5" stroke="#4BD5E8" stroke-width="1.5"/><path d="M10 5v1M10 15v1" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">AI Voice & SMS Response</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Instant outreach via call or text within seconds of lead submission — 24/7.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-1">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="3" stroke="#4BD5E8" stroke-width="1.5"/><path d="M6 7h8M6 10h5" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">CRM + Pipeline Setup</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Every lead tracked, staged, and visible in a clean pipeline your team can actually use.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-2">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M4 10h12M10 4l6 6-6 6" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">Automated Follow-Up Sequences</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Multi-step SMS, email, and voicemail campaigns that run without manual effort.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="15" rx="2" stroke="#4BD5E8" stroke-width="1.5"/><path d="M2 8h16M7 2v2M13 2v2" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">Calendar Booking Flows</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Seamless scheduling that puts the right leads directly on your calendar, pre-qualified.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-1">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M10 2l2.39 4.84L18 7.64l-4 3.9.94 5.5L10 14.4l-4.94 2.64.94-5.5L2 7.64l5.61-.8L10 2z" stroke="#4BD5E8" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">Review & Referral Automation</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Post-job review requests and referral prompts sent automatically at the right moment.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-2">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><rect x="2" y="10" width="3" height="8" rx="1" fill="#4BD5E8" opacity="0.5"/><rect x="7" y="6" width="3" height="12" rx="1" fill="#4BD5E8" opacity="0.7"/><rect x="12" y="3" width="3" height="15" rx="1" fill="#4BD5E8"/><path d="M2 2l4 4 4-3 4 3 4-4" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">Reporting Dashboard</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Clear visibility on leads in, responses sent, appointments booked, and pipeline value.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="12" rx="2" stroke="#4BD5E8" stroke-width="1.5"/><path d="M6 18h8M10 14v4" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">Landing Page & Funnel Integration</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Your ad traffic lands on a page built to convert, connected directly to your automation stack.</p>
+      </div>
+
+      <div class="glass service-card rounded-2xl p-6 reveal reveal-delay-4">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,213,232,0.12);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" stroke="#4BD5E8" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#4BD5E8" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="text-sm font-display font-bold text-white mb-2">Lead Source Tracking</h3>
+        <p class="text-xs text-light-gray/55 leading-relaxed">Know exactly which ads, keywords, and channels are generating your best booked appointments.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     BEFORE VS AFTER
+════════════════════════════════════════════════ -->
+<section class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(49,32,93,0.2) 0%, transparent 70%);"></div>
+
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14">
+      <div class="section-label mb-4 reveal mx-auto">The Transformation</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-4 reveal reveal-delay-1">
+        Before vs. <span style="color:var(--cyan);">After Adaptive</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Before -->
+      <div class="before-panel rounded-2xl p-7 reveal-left">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(255,80,80,0.15);">
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M2 8h12M8 2l6 6-6 6" stroke="#FF6464" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-base font-display font-bold" style="color: #FF8A8A;">Without Adaptive</h3>
+        </div>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-sm text-light-gray/65">Leads come in from ads — you find out hours later</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-sm text-light-gray/65">Response is delayed or forgotten entirely</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-sm text-light-gray/65">Follow-up depends on memory and good intentions</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-sm text-light-gray/65">No clear picture of where each lead stands</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-sm text-light-gray/65">Appointments get missed or cancelled with no recovery</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <span class="text-sm text-light-gray/65">Owner is the system — chasing, texting, reminding, manually</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- After -->
+      <div class="after-panel rounded-2xl p-7 reveal-right reveal-delay-1">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: rgba(75,213,232,0.15);">
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M2 8h12M8 2l6 6-6 6" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-base font-display font-bold text-cyan">With Adaptive</h3>
+        </div>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-cyan mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-sm text-light-gray/80">Every lead is contacted automatically in under 60 seconds</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-cyan mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-sm text-light-gray/80">AI handles the first conversation while you're on the job</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-cyan mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-sm text-light-gray/80">Follow-up sequences run automatically until they book or opt out</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-cyan mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-sm text-light-gray/80">Pipeline shows every lead, their stage, and next action needed</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-cyan mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-sm text-light-gray/80">Calendar fills with pre-qualified, ready-to-buy appointments</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-cyan mt-0.5 flex-shrink-0">✓</span>
+            <span class="text-sm text-light-gray/80">Owner gets visibility and results — not more manual chasing</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     BUILT FOR SECTION
+════════════════════════════════════════════════ -->
+<section class="relative py-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-12">
+      <div class="section-label mb-4 reveal mx-auto">Who It's For</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-4 reveal reveal-delay-1">
+        Built for <span style="color:var(--cyan);">High-Ticket Local Services</span>
+      </h2>
+      <p class="text-lg text-light-gray/60 max-w-xl mx-auto reveal reveal-delay-2">
+        If every missed lead can cost hundreds or thousands in revenue, your follow-up system cannot depend on manual effort.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- Contractors -->
+      <div class="glass rounded-2xl overflow-hidden reveal service-card">
+        <div style="position:relative; width:100%; padding-bottom:75%; overflow:hidden;">
+          <img
+            src="brand_assets/contractor.jpeg"
+            alt="Contractors"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,18,40,0.85) 0%, rgba(10,18,40,0.1) 60%);"></div>
+        </div>
+        <div class="p-4 flex items-center gap-3">
+          <span class="text-xl">🔨</span>
+          <p class="text-sm font-display font-bold text-white">Contractors</p>
+        </div>
+      </div>
+
+      <!-- Installers -->
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-1 service-card">
+        <div style="position:relative; width:100%; padding-bottom:75%; overflow:hidden;">
+          <img
+            src="brand_assets/installer.jpeg"
+            alt="Installers"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,18,40,0.85) 0%, rgba(10,18,40,0.1) 60%);"></div>
+        </div>
+        <div class="p-4 flex items-center gap-3">
+          <span class="text-xl">⚡</span>
+          <p class="text-sm font-display font-bold text-white">Installers</p>
+        </div>
+      </div>
+
+      <!-- Restoration Companies -->
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-2 service-card">
+        <div style="position:relative; width:100%; padding-bottom:75%; overflow:hidden;">
+          <img
+            src="brand_assets/restoration-team.jpeg"
+            alt="Restoration Companies"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,18,40,0.85) 0%, rgba(10,18,40,0.1) 60%);"></div>
+        </div>
+        <div class="p-4 flex items-center gap-3">
+          <span class="text-xl">🏠</span>
+          <p class="text-sm font-display font-bold text-white">Restoration Companies</p>
+        </div>
+      </div>
+
+      <!-- Property Management -->
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-1 service-card">
+        <div style="position:relative; width:100%; padding-bottom:75%; overflow:hidden;">
+          <img
+            src="brand_assets/property-management.jpeg"
+            alt="Property Management"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,18,40,0.85) 0%, rgba(10,18,40,0.1) 60%);"></div>
+        </div>
+        <div class="p-4 flex items-center gap-3">
+          <span class="text-xl">🏢</span>
+          <p class="text-sm font-display font-bold text-white">Property Management</p>
+        </div>
+      </div>
+
+      <!-- Real Estate Professionals -->
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-2 service-card">
+        <div style="position:relative; width:100%; padding-bottom:75%; overflow:hidden;">
+          <img
+            src="brand_assets/real-estate-agent.jpeg"
+            alt="Real Estate Professionals"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,18,40,0.85) 0%, rgba(10,18,40,0.1) 60%);"></div>
+        </div>
+        <div class="p-4 flex items-center gap-3">
+          <span class="text-xl">🏡</span>
+          <p class="text-sm font-display font-bold text-white">Real Estate Professionals</p>
+        </div>
+      </div>
+
+      <!-- High-Ticket Local Services -->
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-3 service-card">
+        <div style="position:relative; width:100%; padding-bottom:75%; overflow:hidden;">
+          <img
+            src="brand_assets/high.jpeg"
+            alt="High-Ticket Local Services"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+          />
+          <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(10,18,40,0.85) 0%, rgba(10,18,40,0.1) 60%);"></div>
+        </div>
+        <div class="p-4 flex items-center gap-3">
+          <span class="text-xl">💎</span>
+          <p class="text-sm font-display font-bold text-white">High-Ticket Local Services</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 50% at 30% 60%, rgba(49,32,93,0.3) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14">
+      <div class="section-label mb-4 reveal mx-auto">Results</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-4 reveal reveal-delay-1">
+        What Business Owners<br/><span style="color:var(--cyan);">Are Saying</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+
+      <!-- Testimonial 1 -->
+      <div class="glass testimonial-card rounded-2xl p-6 reveal-scale">
+        <div class="flex gap-1 mb-4">
+          <span class="text-cyan text-sm">★★★★★</span>
+        </div>
+        <p class="text-sm text-light-gray/75 leading-relaxed mb-6 italic">
+          "We were spending on ads but the leads were just falling through the cracks. After Adaptive built the system, every lead gets a response in under a minute. Our booking rate is up and I'm not chasing anyone anymore."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-sm text-navy" style="background: var(--cyan);">M</div>
+          <div>
+            <p class="text-xs font-display font-semibold text-white">Marcus T.</p>
+            <p class="text-[11px] text-mid-gray">HVAC Contractor, Dallas TX</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="glass testimonial-card rounded-2xl p-6 reveal-scale reveal-delay-2">
+        <div class="flex gap-1 mb-4">
+          <span class="text-cyan text-sm">★★★★★</span>
+        </div>
+        <p class="text-sm text-light-gray/75 leading-relaxed mb-6 italic">
+          "The pipeline visibility alone was worth it. Before, I had no idea which leads were real. Now I can see exactly where every prospect is, what they need, and when to close. Our calendar is booked two weeks out."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-sm text-navy" style="background: var(--cyan);">R</div>
+          <div>
+            <p class="text-xs font-display font-semibold text-white">Rachel S.</p>
+            <p class="text-[11px] text-mid-gray">Property Management, Phoenix AZ</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="glass testimonial-card rounded-2xl p-6 reveal-scale reveal-delay-4">
+        <div class="flex gap-1 mb-4">
+          <span class="text-cyan text-sm">★★★★★</span>
+        </div>
+        <p class="text-sm text-light-gray/75 leading-relaxed mb-6 italic">
+          "I used to lose leads every weekend because no one was available to respond. Now the AI handles it instantly. Monday morning I come in and there are already booked appointments from the weekend."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center font-display font-bold text-sm text-navy" style="background: var(--cyan);">D</div>
+          <div>
+            <p class="text-xs font-display font-semibold text-white">Daniel K.</p>
+            <p class="text-[11px] text-mid-gray">Restoration Services, Los Angeles CA</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center text-xs text-mid-gray/60 reveal">
+      * Testimonials are representative placeholders and should be replaced with verified client reviews.
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     PROCESS SECTION
+════════════════════════════════════════════════ -->
+<section id="process" class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(75,213,232,0.05) 0%, transparent 70%);"></div>
+
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="section-label mb-4 reveal mx-auto">How It Works</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-5 reveal reveal-delay-1">
+        Three Steps to a<br/><span style="color:var(--cyan);">Full Lead Pipeline</span>
+      </h2>
+    </div>
+
+    <div class="space-y-5">
+
+      <!-- Step 1 -->
+      <div class="glass-strong rounded-2xl p-7 flex gap-6 items-start reveal-left" style="border-color: rgba(75,213,232,0.25);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-display font-extrabold text-lg text-navy" style="background: var(--cyan);">1</div>
+        <div>
+          <h3 class="text-lg font-display font-bold text-white mb-2">Audit Your Lead Flow</h3>
+          <p class="text-sm text-light-gray/65 leading-relaxed max-w-2xl">
+            We start with a free Lead Flow Audit — a detailed review of where leads are coming in and where they're being lost. We map the gaps between first contact and booked appointment across every channel: ads, calls, forms, social, and referrals.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="glass-strong rounded-2xl p-7 flex gap-6 items-start reveal-left reveal-delay-2" style="border-color: rgba(75,213,232,0.2);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-display font-extrabold text-lg text-navy" style="background: var(--cyan);">2</div>
+        <div>
+          <h3 class="text-lg font-display font-bold text-white mb-2">Build the Automation System</h3>
+          <p class="text-sm text-light-gray/65 leading-relaxed max-w-2xl">
+            We build and configure your complete lead response infrastructure: AI response triggers, CRM pipeline, follow-up sequences, qualification flows, calendar booking, and tracking. Everything is connected and tested before it goes live.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="glass-strong rounded-2xl p-7 flex gap-6 items-start reveal-left reveal-delay-4" style="border-color: rgba(75,213,232,0.2);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-display font-extrabold text-lg text-navy" style="background: var(--cyan);">3</div>
+        <div>
+          <h3 class="text-lg font-display font-bold text-white mb-2">Launch, Track, Optimize</h3>
+          <p class="text-sm text-light-gray/65 leading-relaxed max-w-2xl">
+            We monitor the pipeline and improve the system based on real conversion data. You get a live reporting dashboard and regular reviews to identify what's working and where to push harder.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FINAL CTA SECTION
+════════════════════════════════════════════════ -->
+<section class="relative py-28 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(49,32,93,0.5) 0%, transparent 70%);"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(75,213,232,0.06) 0%, transparent 70%);"></div>
+
+  <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+    <div class="section-label mb-6 reveal mx-auto">Free Audit</div>
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white mb-6 reveal reveal-delay-1" style="letter-spacing:-0.04em; line-height:1.08;">
+      Find Out Where Your<br/><span style="color:var(--cyan);">Leads Are Getting Lost</span>
+    </h2>
+    <p class="text-lg text-light-gray/65 mb-10 reveal reveal-delay-2" style="line-height:1.75;">
+      Book a free Lead Flow Audit and we'll map the gaps between first contact and booked appointment — at no cost and no obligation.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal-bounce reveal-delay-3">
+      <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan text-base px-10 py-4 justify-center">
+        Book a Free Lead Flow Audit
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <p class="text-xs text-mid-gray/60 mt-5 reveal reveal-delay-4">No commitment. No credit card. Just a clear picture of where your leads go after they click.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FAQ SECTION
+════════════════════════════════════════════════ -->
+<section id="faq" class="relative py-24 overflow-hidden">
+  <div class="max-w-3xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14">
+      <div class="section-label mb-4 reveal mx-auto">FAQ</div>
+      <h2 class="text-4xl md:text-5xl font-display font-extrabold text-white mb-4 reveal reveal-delay-1">
+        Common <span style="color:var(--cyan);">Questions</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3" id="faq-list">
+
+      <div class="glass rounded-2xl overflow-hidden reveal">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">What is a Lead Flow Audit?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">A Lead Flow Audit is a structured review of how leads currently move through your business — from first contact to booked appointment. We look at all your lead sources, response times, follow-up processes, and pipeline visibility to identify where prospects are falling out. It's free, takes about 45 minutes, and gives you a clear picture of the gaps regardless of whether we work together.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-1">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">Is this only for businesses running ads?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">No. While the system works very well alongside paid ads, it also handles leads from SEO, referrals, organic social, Google Business Profile, and any other channel. If a lead can fill out a form, make a call, or send a message — the system can capture and respond to them.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-2">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">Can this work with my current CRM or tools?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">In most cases, yes. We integrate with common CRMs, scheduling tools, and communication platforms. During the audit we'll review your current stack and determine the best approach — whether that's connecting to your existing tools or recommending a cleaner setup.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">Do you replace my team?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">No. The system handles the speed-dependent, repetitive parts of lead follow-up — the immediate response, the qualification questions, the reminder sequences. Your team focuses on the high-value conversations that actually close the job. The goal is to give your people better-qualified, warmer leads — not to remove them.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-1">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">Can you build the landing page too?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">Yes. We build conversion-focused landing pages that are wired directly into your lead capture and automation stack. The page, the form, the AI response, the CRM, and the booking flow all work together from day one.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-2">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">How fast can the system respond to leads?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">The system is designed to respond within 60 seconds of a lead submitting a form or triggering a workflow. In most implementations, the first message goes out in under 30 seconds — 24 hours a day, 7 days a week, including weekends and holidays.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">Is this for small local businesses?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">Yes. The system was designed specifically for local service businesses where the owner or a small team is doing the selling, the scheduling, and the work. You don't need a full sales team or an enterprise budget. The system works as your automated sales layer.</p>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl overflow-hidden reveal reveal-delay-1">
+        <button class="faq-toggle w-full text-left p-5 flex items-center justify-between gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan rounded-2xl" aria-expanded="false">
+          <span class="text-sm font-display font-bold text-white">Do you manage the system after launch?</span>
+          <svg class="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 18 18"><path d="M9 4v10M4 9h10" stroke="#4BD5E8" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <div class="faq-answer px-5">
+          <p class="text-sm text-light-gray/65 pb-5 leading-relaxed">Yes. We offer ongoing management, monitoring, and optimization. We track conversion metrics, update sequences based on performance, and adjust the system as your business evolves. You'll always have visibility into what's happening without needing to manage it yourself.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="relative border-t overflow-hidden py-16" style="border-color: rgba(75,213,232,0.1); background: rgba(10,18,40,0.8);">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(49,32,93,0.2) 0%, transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand column -->
+      <div class="md:col-span-2">
+        <img src="brand_assets/Adaptive.png" alt="Adaptive AI Business Automations" style="height:120px; width:auto;" class="mb-4" />
+        <p class="text-sm text-light-gray/55 leading-relaxed mb-5 max-w-xs">
+          AI-powered lead response, follow-up, and booking systems for local service businesses that can't afford to lose a lead.
+        </p>
+        <div class="space-y-2 text-sm text-light-gray/60">
+          <p>
+            <a href="tel:3237818600" class="hover:text-cyan transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan">323 781 8600</a>
+          </p>
+          <p>
+            <a href="mailto:steve@adaptiveautomate.com" class="hover:text-cyan transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan">steve@adaptiveautomate.com</a>
+          </p>
+          <p class="text-light-gray/40">15301 Ventura Blvd., Sherman Oaks, CA 91403</p>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <div>
+        <h4 class="text-xs font-display font-bold text-white mb-4 uppercase tracking-widest">Navigate</h4>
+        <ul class="space-y-3 text-sm text-light-gray/55">
+          <li><a href="#problem" class="hover:text-cyan transition-colors duration-200">The Problem</a></li>
+          <li><a href="#system"  class="hover:text-cyan transition-colors duration-200">The System</a></li>
+          <li><a href="#process" class="hover:text-cyan transition-colors duration-200">Our Process</a></li>
+          <li><a href="#faq"     class="hover:text-cyan transition-colors duration-200">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA column -->
+      <div>
+        <h4 class="text-xs font-display font-bold text-white mb-4 uppercase tracking-widest">Get Started</h4>
+        <p class="text-sm text-light-gray/55 mb-4 leading-relaxed">Book a free audit and see where your leads are slipping through the cracks.</p>
+        <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan text-sm px-5 py-3 w-full justify-center">
+          Book a Free Audit
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style="border-color: rgba(75,213,232,0.1);">
+      <p class="text-xs text-mid-gray/50">© 2024 Adaptive AI Business Automations. All rights reserved.</p>
+      <div class="flex gap-6 text-xs text-mid-gray/50">
+        <a href="privacy-policy.html" class="hover:text-cyan transition-colors duration-200">Privacy Policy</a>
+        <a href="terms-and-conditions.html" class="hover:text-cyan transition-colors duration-200">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════
+     STICKY MOBILE CTA
+════════════════════════════════════════════════ -->
+<div id="sticky-mobile-cta">
+  <a href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb" target="_blank" rel="noopener" class="btn-cyan w-full justify-center text-sm py-3.5">
+    Book a Free Lead Flow Audit
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+
+<!-- ════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════ -->
+<script>
+// ── Sticky header
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const bar1 = document.getElementById('bar1');
+const bar2 = document.getElementById('bar2');
+const bar3 = document.getElementById('bar3');
+let navOpen = false;
+
+navToggle.addEventListener('click', () => {
+  navOpen = !navOpen;
+  mobileNav.classList.toggle('open', navOpen);
+  navToggle.setAttribute('aria-expanded', navOpen);
+  if (navOpen) {
+    bar1.style.transform = 'translateY(7px) rotate(45deg)';
+    bar2.style.opacity = '0';
+    bar3.style.transform = 'translateY(-7px) rotate(-45deg)';
+  } else {
+    bar1.style.transform = '';
+    bar2.style.opacity = '';
+    bar3.style.transform = '';
+  }
+});
+
+// Close mobile nav on link click
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navOpen = false;
+    mobileNav.classList.remove('open');
+    bar1.style.transform = '';
+    bar2.style.opacity = '';
+    bar3.style.transform = '';
+  });
+});
+
+// ── Scroll reveal handled by universalObserver in the tech animation block below
+
+// ── FAQ accordion
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-toggle').forEach(b => {
+      b.classList.remove('open');
+      b.setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
+
+
+<!-- ════════════════════════════════════════════════
+     10-SECOND DELAY POPUP MODAL
+════════════════════════════════════════════════ -->
+<style>
+  /* Popup overlay */
+  #lead-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5, 10, 25, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.22,1,0.36,1), visibility 0.4s;
+  }
+  #lead-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Popup card */
+  #lead-popup-card {
+    position: relative;
+    background: linear-gradient(145deg, #0D1735 0%, #111E42 60%, #0D1735 100%);
+    border: 1px solid rgba(75,213,232,0.25);
+    border-radius: 20px;
+    padding: 36px 32px 32px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 0 60px rgba(75,213,232,0.12), 0 24px 64px rgba(0,0,0,0.6);
+    transform: translateY(24px) scale(0.97);
+    transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+    overflow: hidden;
+  }
+  #lead-popup-overlay.active #lead-popup-card {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Glow accent top */
+  #lead-popup-card::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 60px;
+    background: radial-gradient(ellipse, rgba(75,213,232,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Close button */
+  #popup-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #8B9CC4;
+    transition: background 0.2s, color 0.2s;
+    font-size: 14px;
+    line-height: 1;
+  }
+  #popup-close:hover { background: rgba(75,213,232,0.15); color: #4BD5E8; }
+  #popup-close:focus-visible { outline: 2px solid #4BD5E8; outline-offset: 2px; }
+
+  /* Popup brand bar */
+  .popup-brand-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(75,213,232,0.07);
+    border: 1px solid rgba(75,213,232,0.18);
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Popup checklist */
+  .popup-check-list {
+    list-style: none;
+    margin: 16px 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .popup-check-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(238,242,247,0.8);
+  }
+  .popup-check-list li::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(75,213,232,0.15);
+    border: 1px solid rgba(75,213,232,0.35);
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%234BD5E8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Trust chips row */
+  .popup-trust-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 14px;
+  }
+  .popup-trust-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    color: #8B9CC4;
+  }
+  .popup-trust-chip svg { opacity: 0.7; }
+
+  /* Popup divider */
+  .popup-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0;
+    color: #8B9CC4;
+    font-size: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .popup-divider::before,
+  .popup-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+</style>
+
+<div id="lead-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-headline">
+  <div id="lead-popup-card">
+    <!-- Close -->
+    <button id="popup-close" aria-label="Close popup">✕</button>
+
+    <!-- Brand bar -->
+    <div class="popup-brand-bar">
+      <img src="brand_assets/Adaptive.png" alt="Adaptive AI Business Automations" style="height:66px; width:auto;" />
+      <div>
+        <p style="font-family:'Syne',sans-serif; font-size:0.7rem; font-weight:700; color:#4BD5E8; letter-spacing:0.06em; text-transform:uppercase; line-height:1.2;">Adaptive AI</p>
+        <p style="font-family:'DM Sans',sans-serif; font-size:0.65rem; color:#8B9CC4; line-height:1.2;">Business Automations</p>
+      </div>
+      <div style="margin-left:auto; display:flex; align-items:center; gap:5px;">
+        <div style="width:6px; height:6px; border-radius:50%; background:#4BD5E8; animation: pulseDot 2s ease-in-out infinite;"></div>
+        <span style="font-family:'DM Sans',sans-serif; font-size:0.65rem; color:#4BD5E8;">Free Audit</span>
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <h2 id="popup-headline" style="font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:800; color:#FFFFFF; line-height:1.2; letter-spacing:-0.02em; margin-bottom:6px;">
+      Get a Free Lead Flow Audit
+    </h2>
+    <p style="font-family:'DM Sans',sans-serif; font-size:0.85rem; color:rgba(238,242,247,0.6); line-height:1.6; margin-bottom:4px;">
+      Tell us about your business. We'll map exactly where leads are slipping through.
+    </p>
+
+    <!-- Checklist -->
+    <ul class="popup-check-list">
+      <li>Free, no-obligation audit — no credit card needed</li>
+      <li>Response within 1 business day</li>
+      <li>We identify the gaps before pitching anything</li>
+      <li>Built specifically for local service businesses</li>
+    </ul>
+
+    <!-- Primary CTA → GHL Form -->
+    <a
+      href="https://go.adaptiveautomate.com/widget/form/n116FzMa511tva7LqoME"
+      target="_blank"
+      rel="noopener"
+      class="btn-cyan"
+      style="width:100%; justify-content:center; font-size:0.9rem; padding:14px 20px;"
+      onclick="document.getElementById('lead-popup-overlay').classList.remove('active');"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Fill Out the Audit Form
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <div class="popup-divider">or</div>
+
+    <!-- Secondary CTA → Phone -->
+    <a
+      href="tel:3237818600"
+      style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:12px 20px; border-radius:8px; border:1px solid rgba(75,213,232,0.25); background:transparent; font-family:'Syne',sans-serif; font-weight:600; font-size:0.85rem; color:#EEF2F7; text-decoration:none; transition:border-color 0.2s, color 0.2s;"
+      onmouseover="this.style.borderColor='rgba(75,213,232,0.5)'; this.style.color='#4BD5E8';"
+      onmouseout="this.style.borderColor='rgba(75,213,232,0.25)'; this.style.color='#EEF2F7';"
+    >
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 2.5C2 2.5 3.5 1 4.5 1c.5 0 .9.3 1.2.7l1.4 2c.3.4.2 1-.1 1.3L6 6.5c.8 1.5 2 2.7 3.5 3.5l1.5-1c.3-.3.9-.4 1.3-.1l2 1.4c.4.3.7.7.7 1.2 0 1-1.5 2.5-1.5 2.5C7 14 1 8 2 2.5z" stroke="#4BD5E8" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      Call (323) 781-8600
+    </a>
+
+    <!-- Trust chips -->
+    <div class="popup-trust-row">
+      <span class="popup-trust-chip">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#4BD5E8" stroke-width="1.2"/><path d="M3 5l1.5 1.5L7 3.5" stroke="#4BD5E8" stroke-width="1.2" stroke-linecap="round"/></svg>
+        No spam
+      </span>
+      <span class="popup-trust-chip">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#4BD5E8" stroke-width="1.2"/><path d="M3 5l1.5 1.5L7 3.5" stroke="#4BD5E8" stroke-width="1.2" stroke-linecap="round"/></svg>
+        No pressure
+      </span>
+      <span class="popup-trust-chip">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#4BD5E8" stroke-width="1.2"/><path d="M3 5l1.5 1.5L7 3.5" stroke="#4BD5E8" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Fast response
+      </span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+// PARTICLE NETWORK CANVAS
+// ══════════════════════════════════════════════
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles, mouse = {x: -9999, y: -9999};
+  const PARTICLE_COUNT = 70;
+  const MAX_DIST = 140;
+  const CYAN = '75,213,232';
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function Particle() {
+    this.x  = Math.random() * W;
+    this.y  = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.r  = Math.random() * 1.8 + 0.6;
+    this.pulse = Math.random() * Math.PI * 2;
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({length: PARTICLE_COUNT}, () => new Particle());
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    particles.forEach(p => {
+      // Move
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.pulse += 0.02;
+      // Wrap
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      // Draw node
+      const glow = (Math.sin(p.pulse) * 0.3 + 0.7);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * glow, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${CYAN},${0.5 * glow})`;
+      ctx.fill();
+    });
+
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.18;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(${CYAN},${alpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+      // Mouse proximity boost
+      const p = particles[i];
+      const mdx = p.x - mouse.x, mdy = p.y - mouse.y;
+      const mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+      if (mdist < 180) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        const ma = (1 - mdist/180) * 0.3;
+        ctx.strokeStyle = `rgba(${CYAN},${ma})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  init();
+  draw();
+
+  window.addEventListener('resize', () => { resize(); }, {passive:true});
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; }, {passive:true});
+  window.addEventListener('touchmove', e => {
+    if (e.touches[0]) { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }
+  }, {passive:true});
+})();
+
+// ══════════════════════════════════════════════
+// UNIFIED SCROLL REVEAL (all variants)
+// ══════════════════════════════════════════════
+const allRevealSelectors = [
+  '.reveal', '.reveal-left', '.reveal-right',
+  '.reveal-scale', '.reveal-bounce', '.reveal-glow', '.reveal-flip'
+];
+const revealAll = document.querySelectorAll(allRevealSelectors.join(','));
+
+const universalObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      universalObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+revealAll.forEach(el => universalObserver.observe(el));
+
+// ── 10-second delay popup
+(function() {
+  const overlay = document.getElementById('lead-popup-overlay');
+  const closeBtn = document.getElementById('popup-close');
+
+  // Don't show again this session if already dismissed
+  if (!sessionStorage.getItem('popup_dismissed')) {
+    setTimeout(() => {
+      overlay.classList.add('active');
+      // Trap focus inside popup
+      const focusable = overlay.querySelectorAll('a, button, [tabindex]');
+      if (focusable.length) focusable[0].focus();
+    }, 10000);
+  }
+
+  function closePopup() {
+    overlay.classList.remove('active');
+    sessionStorage.setItem('popup_dismissed', '1');
+  }
+
+  closeBtn.addEventListener('click', closePopup);
+
+  // Close on overlay background click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closePopup();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
+  });
+})();
+</script>
+
+</body>
+</html>
